@@ -1,3 +1,4 @@
+import 'package:counter_app/presentation/screens/counter_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,8 +14,6 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: Center(child: Text('Flutter BorisXD')),
-        ));
+        home: CounterScreen());
   }
 }
