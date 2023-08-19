@@ -18,7 +18,8 @@ class _CounterFunctionsScreeenState extends State<CounterFunctionsScreeen> {
             title: const Text("My Functions App"),
             leading: IconButton(
               onPressed: () {
-                
+                clickCounter = 0;
+                setState(() {});
               },
               icon: const Icon(Icons.refresh_rounded),
             ),
@@ -52,13 +53,26 @@ class _CounterFunctionsScreeenState extends State<CounterFunctionsScreeen> {
               ],
             )
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              clickCounter++;
-              setState(() {});
-            },
-            child: const Icon(Icons.add)
-            ),
+          floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              FloatingActionButton(
+                onPressed: () {
+                  clickCounter++;
+                  setState(() {});
+                },
+                child: const Icon(Icons.exposure_plus_1_outlined)
+                ),
+                const SizedBox(height: 25.0,),
+                FloatingActionButton(
+                onPressed: () {
+                  clickCounter--;
+                  setState(() {});
+                },
+                child: const Icon(Icons.exposure_minus_1_outlined)
+                ),
+            ],
+          )
         );
   }
 }
