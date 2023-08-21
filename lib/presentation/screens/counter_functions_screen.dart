@@ -16,34 +16,10 @@ class _CounterFunctionsScreeenState extends State<CounterFunctionsScreeen> {
     return Scaffold(
           appBar: AppBar(
             title: const Text("My Functions App"),
-            leading: IconButton(
-              onPressed: () {
-                clickCounter = 0;
-                setState(() {});
-              },
-              icon: const Icon(Icons.refresh_rounded),
-            ),
+            leading: CustomIconHeader(icon: Icons.refresh_rounded, onPressed: () { setState(() { clickCounter = 0; });}),
             actions: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    clickCounter = 0;
-                  });
-                },
-                icon: const Icon(Icons.settings),
-              ),
-              IconButton(
-                onPressed: () {
-                  
-                },
-                icon: const Icon(Icons.info),
-              ),
-              IconButton(
-                onPressed: () {
-                  
-                },
-                icon: const Icon(Icons.list),
-              ),
+              CustomIconHeader(icon: Icons.settings, onPressed: () {}),
+              CustomIconHeader(icon: Icons.list, onPressed: () {})
             ],
           ),
           body: Center(
@@ -72,6 +48,26 @@ class _CounterFunctionsScreeenState extends State<CounterFunctionsScreeen> {
             ],
           )
         );
+  }
+}
+
+class CustomIconHeader extends StatelessWidget {
+
+  final IconData icon;
+  final VoidCallback? onPressed;
+
+  const CustomIconHeader({
+    super.key,
+    required this.icon,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(icon),
+    );
   }
 }
 
